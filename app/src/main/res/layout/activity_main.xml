@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:layout_width="match_parent"
+                android:id="@+id/appBar"
+                android:layout_height="?attr/actionBarSize"
+                android:elevation="5dp"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_collapseMode="pin">
+
+                <ImageView
+                    android:id="@+id/home"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:src="@drawable/gome_blue" />
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/search_view"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_margin="5dp"
+                    android:layout_toRightOf="@id/home"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:paddingStart="5dp"
+                    app:iconifiedByDefault="false"
+                    app:queryHint="Search or type URL"
+                    app:searchIcon="@drawable/search" />
+
+                <ImageView
+                    android:id="@+id/backward"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/search_view"
+                    android:padding="5dp"
+                    android:src="@drawable/undo_blue" />
+
+                <ImageView
+                    android:id="@+id/forward"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/backward"
+                    android:padding="5dp"
+                    android:src="@drawable/redo_blue" />
+
+            </androidx.appcompat.widget.SearchView>
+
+        </RelativeLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_below="@id/appBar"
+        android:layout_height="5dp"
+        tools:ignore="NotSibling" />
+               <WebView
+                   android:layout_width="match_parent"
+                   android:id="@+id/webView"
+                   android:visibility="gone"
+                   android:layout_below="@id/progress_bar"
+                   android:layout_height="match_parent"/>
+
+
+
+            </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
