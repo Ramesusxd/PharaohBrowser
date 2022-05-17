@@ -23,12 +23,14 @@
                     android:layout_width="match_parent"
                     app:layout_collapseMode="pin"
                     android:layout_height="wrap_content">
-                    
+
                     <ImageView
                         android:id="@+id/home"
+                        android:onClick="iconClicked"
                         android:layout_width="30dp"
-                        android:layout_centerVertical="true"
                         android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/ripple_effect_bg"
                         android:src="@drawable/gome_blue">
 
                     </ImageView>
@@ -36,6 +38,7 @@
                     <androidx.appcompat.widget.SearchView
                         android:id="@+id/search_view"
                         android:layout_width="300dp"
+                        android:background="@drawable/search_bg"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
                         android:layout_marginTop="5dp"
@@ -54,10 +57,12 @@
                         android:id="@+id/back"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/undo_blue"
-                        android:padding="5dp"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/search_view"
-                        android:layout_centerVertical="true">
+                        android:background="@drawable/ripple_effect_bg"
+                        android:onClick="iconClicked"
+                        android:padding="5dp"
+                        android:src="@drawable/undo_blue">
 
                     </ImageView>
 
@@ -65,10 +70,12 @@
                         android:id="@+id/forward"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:src="@drawable/redo_blue"
-                        android:padding="5dp"
+                        android:layout_centerVertical="true"
                         android:layout_toRightOf="@id/back"
-                        android:layout_centerVertical="true">
+                        android:background="@drawable/ripple_effect_bg"
+                        android:onClick="iconClicked"
+                        android:padding="5dp"
+                        android:src="@drawable/redo_blue">
 
                     </ImageView>
 
@@ -96,6 +103,7 @@
             </WebView>
 
             <LinearLayout
+                android:id="@+id/mainScreen"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
@@ -111,11 +119,17 @@
                 </ImageView>
 
                 <androidx.cardview.widget.CardView
+                    app:cardCornerRadius="30dp"
+                    android:layout_gravity="center"
+                    android:elevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:cardBackgroundColor="@color/lightblue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:gravity="center"
+                        android:padding="10dp"
                         android:layout_height="match_parent"
                         android:orientation="vertical">
                         <LinearLayout
@@ -126,16 +140,67 @@
                             <ImageView
                                 android:id="@+id/youtube"
                                 android:layout_width="60dp"
-                                android:scaleType="fitXY"
-                                android:padding="10dp"
+                                android:layout_height="60dp"
                                 android:layout_marginRight="20dp"
-                                android:src="@drawable/youtube"
-                                android:layout_height="60dp">
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/youtube">
 
                             </ImageView>
 
                             <ImageView
                                 android:id="@+id/google"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/google">
+
+                            </ImageView>
+
+                            <ImageView
+                                android:id="@+id/linkedin"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/linkedin">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/facebook"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/facebook">
+
+                            </ImageView>
+
+                            <ImageView
+                                android:visibility="invisible"
                                 android:layout_width="60dp"
                                 android:scaleType="fitXY"
                                 android:padding="10dp"
@@ -146,13 +211,61 @@
                             </ImageView>
 
                             <ImageView
-                                android:id="@+id/linkedin"
+                                android:id="@+id/twitter"
                                 android:layout_width="60dp"
-                                android:scaleType="fitXY"
-                                android:padding="10dp"
+                                android:layout_height="60dp"
                                 android:layout_marginRight="10dp"
-                                android:src="@drawable/linkedin"
-                                android:layout_height="60dp">
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/twitter">
+
+                            </ImageView>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/amazon"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/amazon">
+
+                            </ImageView>
+
+                            <ImageView
+                                android:id="@+id/instagram"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/instagram">
+
+                            </ImageView>
+
+                            <ImageView
+                                android:id="@+id/duckduckgo"
+                                android:layout_width="60dp"
+                                android:layout_height="60dp"
+                                android:layout_marginRight="10dp"
+                                android:background="@drawable/image_bg"
+                                android:onClick="imageClicked"
+                                android:padding="10dp"
+                                android:scaleType="fitXY"
+                                android:src="@drawable/duckduckgo">
 
                             </ImageView>
 

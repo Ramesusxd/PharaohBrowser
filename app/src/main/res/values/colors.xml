@@ -8,5 +8,6 @@
     <color name="orange">#ff835f</color>
     <color name="lightblue">#111b34</color>
     <color name="lightwhite">#33ffff</color>
+    <color name="PrimaryDark">#07112a</color>
 
 </resources>
