@@ -29,20 +29,18 @@ class MainActivity : AppCompatActivity() {
 
     fun imageClicked(view: View) {
         var id=view.id
-        var ourId: String? =""
+        var ourId: String? = ""
 
         if (isInternetConnected()) {
 
             ourId = view.resources.getResourceEntryName(id)
             webview?.loadUrl("https://www." + ourId + ".com")
             webview!!.visibility = View.VISIBLE
-            mainScreen!!.visibility = View.GONE
-        } else {
-            Toast.makeText(this,
-                    "ummm there is no internet connection. turn on wifi or make sure there is a data connection.",
-                    Toast.LENGTH_SHORT
-            ).show()
-        }
+            progressBar!!.visibility = View.GONE
+        } else Toast.makeText(this,
+                "ummm there is no internet connection. turn on wifi or make sure there is a data connection.",
+                Toast.LENGTH_SHORT
+        ).show()
 
 
 
@@ -50,18 +48,33 @@ class MainActivity : AppCompatActivity() {
         fun iconClicked(view: View) {}
 
         fun isInternetConnected(): Boolean {
-            val connectivityManager: ConnectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val connectivityManager: ConnectivityManager = getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
             val networkinfo = connectivityManager.activeNetworkInfo
-            return networkinfo != null && networkinfo.isConnected
+            if(networkinfo != null && networkinfo.isConnected)
+                return true
+             else
+                return false
         }
 
+
     }
 
-    private fun isInternetConnected(): Boolean {
+    fun isInternetConnected(): Boolean {
         val connectivityManager: ConnectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val networkinfo = connectivityManager.activeNetworkInfo
-        return networkinfo != null && networkinfo.isConnected
-
+        if(networkinfo != null && networkinfo.isConnected)
+            return true
+        else
+            return false
     }
 
+
+
+
+
+
+
+
 }
+
+
